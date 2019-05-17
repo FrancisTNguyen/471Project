@@ -24,10 +24,10 @@ while True:
     
     choice = input("FTP: ")
     
-    print(choice)
-    
     if choice == "quit":
         chh = choice[0:4].encode("utf-8")
+ 
+        print(chh)
         s.send(chh)
         s.close()
         break
