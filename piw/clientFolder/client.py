@@ -23,8 +23,6 @@ while True:
     
     choice = input("FTP: ")
     
-    print(choice)
-    
     if choice == "quit":
         chh = choice[0:4].encode("utf-8")
         s.send(chh)
