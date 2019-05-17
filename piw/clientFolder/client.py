@@ -29,7 +29,8 @@ while True:
         s.close()
         break
 
-    elif choice == "get":
+    elif "get" in choice:
+    
         sentCMD = choice[0:3].encode("utf-8")
         s.send(sentCMD)
         
