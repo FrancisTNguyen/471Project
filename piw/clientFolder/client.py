@@ -28,8 +28,8 @@ while True:
         chh = choice[0:4].encode("utf-8")
  
         print(chh)
-        s.send(chh)
-        s.close()
+      #  s.send(chh)
+       # s.close()
         break
 
 
