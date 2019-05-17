@@ -32,6 +32,8 @@ while True:
     GET = "get".encode("utf-8")
     PUT = "put".encode("utf-8")
     QUIT = "quit".encode("utf-8")
+    
+    print(choice)
 
     if QUIT in choice:
         clientsocket.close()
