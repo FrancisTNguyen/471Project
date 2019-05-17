@@ -24,7 +24,7 @@ while True:
     choice = input("FTP: ")
     
     if choice == "quit":
-        chh = choice[0:4].encode("utf-8")
+        chh = choice[0:5].encode("utf-8")
         s.send(chh)
         s.close()
         break
@@ -43,6 +43,7 @@ while True:
         if "XX".encode("utf-8") in fileSize:
             print("File not found")
         else:
+        
             newPort = s.recv(500)
             newPort = int(newPort, 10)
             newSock = socket.socket(socket.AF_INET, socket.SOCKET_STREAM)
