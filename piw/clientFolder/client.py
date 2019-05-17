@@ -63,7 +63,7 @@ while True:
             newSock.close()
             
     else:
-]
+
         bChoice = choice[0:3].encode("utf-8")
         connSock.send(bChoice)
         print("Command not recognized")
