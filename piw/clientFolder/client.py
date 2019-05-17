@@ -30,10 +30,10 @@ while True:
         break
 
     if choice == "get":
-        sentCMD = choice[0:4].encode("utf-8")
+        sentCMD = choice[0:3].encode("utf-8")
         s.send(sentCMD)
         
-        fileSent = choice[5:]
+        fileSent = choice[4:]
         fileSent = fileSent.encode("utf-8")
         s.send(fileSent)
         print("You have requested file: ", fileText.decode("utf-8"))
