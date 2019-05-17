@@ -18,6 +18,7 @@ port = int(port, 10)
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((address, port))
 
+cmdsock = ''
 
 while True:
     
@@ -30,7 +31,6 @@ while True:
         break
 
     elif "get" in choice:
-   
     
         sentCMD = choice[0:3].encode("utf-8")
         s.send(sentCMD)
