@@ -43,7 +43,7 @@ while True:
         s2 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s2.bind(('',0))
         #Grabs the GET command from the client, max bytes of 500
-        grabText = clientsocket.recv(500)
+        grabText = clientsocket.recv(65536)
         #grab the file
 
         #opens file, then reads it in
@@ -64,9 +64,9 @@ while True:
         bytesSent = 0
 
         while bytesSent < fileSize:
-            buffer = fileRead[bytesSent:bytesSent + 500]
+            buffer = fileRead[bytesSent:bytesSent + 65536]
             ephemPort.send(buffer)
-            bytesSent += 500
+            bytesSent += 65536
         
         ephemPort.close()
         fileText.close()
