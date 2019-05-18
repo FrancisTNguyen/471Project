@@ -72,7 +72,7 @@ while True:
 
             newPort = s.recv(32)
             newPort = int(newPort,10)
-            newSock = socket.socket(socket.AF_INET, socket.SOCKET_STREAM)
+            newSock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             newSock.connect((address, newPort))
 
             recData = recvAll(newSock, int(fileSize))
@@ -82,4 +82,40 @@ while True:
 
             newFile.close()
             newSock.close()
+
+    elif "put" in choice:
+
+        clientText = choice[4:]
+        clientText = clientText.encode("utf-8")
+
+        #encodes the comand, and send it to the server
+        sentCMD = choice[0:3].encode("utf-8")
+        s.send(sentCMD)
+
+        ephemePort = s.recv(32)
+        ephemPort = int(ephemPort, 10)
+        s4 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s4.connect(address, ephemPort)
+
+        #opens the file and reads it in
+        fileName = open(clientText, "rb")
+        fileName.read()
+
+        #send the size of the file
+        fileSize = len(fileName)
+        s.send(fileSize)
+        
+        #send the file to server
+        s.send(fileName.encode("utf-8"))
+        #close
+        bytesSent = 0
+
+        while bytesSent < fileSize:
+            buffer = fileName[bytesSent:bytesSent + 500]
+            s4.send(buffer)
+            bytesSent += 500
+
+        fileName.close()
+        s4.close()
+
 
